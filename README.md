@@ -1,7 +1,7 @@
-# File Magic: ColorRIX
+# File Magic: ColoRIX
 
 This repository contains a magic definition for the
-ColorRIX VGA file format, for use with the [file](https://github.com/file/file)
+ColoRIX VGA file format, for use with the [file](https://github.com/file/file)
 and libmagic software.
 
 ## File format
@@ -16,5 +16,12 @@ with "SCI" used for 320x200 VGA images. When used in other contexts, the extensi
 
 ## Usage
 
-It's my goal to eventually contribute it upstream, but till then you
-can pass `-m rix.magic` to `file`.
+It's my goal to eventually contribute it upstream, but till then...
+
+```console
+$ file -m rix.magic tests/*.testfile
+tests/rix1.testfile: ColoRIX Image, 320 x 200 x 256
+tests/rix2.testfile: ColoRIX Image, 320 x 200 x 256 (compressed)
+tests/rix3.testfile: ColoRIX Image, 640 x 200 x 16, Planar lines (0123)
+tests/rix4.testfile: ColoRIX Image, 256 x 64 x 256
+```
