@@ -29,6 +29,7 @@
 >5  ubyte 3 \b, Text
 >5  ubyte 4 \b, Planar lines (0123)
 
-# Spec says "RIX" is the magic, but "RIX3" is all we've seen.
 0	string	RIX3	ColoRIX Image
 >4 use rix-header
+
+0	string	RIX7	ColoRIX Slideshow
