@@ -55,7 +55,7 @@ starting with a row of bits for bit 0 (the LSB) of the index, then a row for bit
 For 16 colors there will be four such rows to make up one 'line' of the image.</dd>
 <dt>2 (0010b) - Planar field (0123)</dt>
 <dd>This stores the bits in the more conventional field form. COLORIX does not support loading
-such images, but RIXLATE seemingly does (to be verified).</dd>
+such images, but RIXLATE does.</dd>
 <dt>1 (0001b) - Planar field (0213)</dt>
 <dd>Based on the specification, this should be a 'swizzled' version of type 2, but I've found
 nothing which supports this mode.</dd>
@@ -66,7 +66,8 @@ nothing which supports this mode.</dd>
 Taking a working 16-color "planar lines" file and changing the header to one of the other planar
 modes results in `COLORIX.EXE` saying "Incompatible Screen File" when trying to load them.
 
-Curiously, `RIXLATE.EXE` seems capable of reading type 2 images (planar fields).
+Curiously, `RIXLATE.EXE` is capable of reading type 2 images (planar fields). Verified by
+converting a type 4 to a type 2, which then displays correctly.
 
 ## Usage
 
@@ -78,5 +79,6 @@ tests/rix1.testfile: ColoRIX Image, 640 x 480 x 256
 tests/rix2.testfile: ColoRIX Image, 320 x 200 x 256 (compressed)
 tests/rix3.testfile: ColoRIX Image, 640 x 200 x 16, Planar lines
 tests/rix4.testfile: ColoRIX Image, 640 x 200 x 16, Planar lines (compressed)
+tests/rix5.testfile: ColoRIX Image, 640 x 200 x 16, Planar
 tests/rix7.testfile: ColoRIX Slideshow
 ```
