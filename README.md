@@ -75,10 +75,10 @@ It's my goal to eventually contribute it upstream, but till then...
 
 ```console
 $ file -m rix.magic tests/*.testfile
-tests/rix1.testfile: ColoRIX Image, 640 x 480 x 256
-tests/rix2.testfile: ColoRIX Image, 320 x 200 x 256 (compressed)
-tests/rix3.testfile: ColoRIX Image, 640 x 200 x 16, Planar lines
-tests/rix4.testfile: ColoRIX Image, 640 x 200 x 16, Planar lines (compressed)
-tests/rix5.testfile: ColoRIX Image, 640 x 200 x 16, Planar
-tests/rix7.testfile: ColoRIX Slideshow
+tests/colorix-linear-256-compressed.testfile:      ColoRIX Image, 320 x 200 x 256 (compressed)
+tests/colorix-linear-256.testfile:                 ColoRIX Image, 640 x 480 x 256
+tests/colorix-planar-fields-16.testfile:           ColoRIX Image, 640 x 200 x 16, Planar
+tests/colorix-planar-lines-16-compressed.testfile: ColoRIX Image, 640 x 200 x 16, Planar lines (compressed)
+tests/colorix-planar-lines-16.testfile:            ColoRIX Image, 640 x 200 x 16, Planar lines
+tests/colorix-slideshow.testfile:                  ColoRIX Slideshow
 ```
