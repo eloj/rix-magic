@@ -36,7 +36,7 @@ It's my goal to eventually contribute it upstream, but till then...
 $ file -m rix.magic tests/*.testfile
 tests/rix1.testfile: ColoRIX Image, 640 x 480 x 256
 tests/rix2.testfile: ColoRIX Image, 320 x 200 x 256 (compressed)
-tests/rix3.testfile: ColoRIX Image, 640 x 200 x 16, Planar lines (0123)
-tests/rix4.testfile: ColoRIX Image, 256 x 64 x 256
+tests/rix3.testfile: ColoRIX Image, 640 x 200 x 16, Planar lines
+tests/rix4.testfile: ColoRIX Image, 640 x 200 x 16, Planar lines (compressed)
 tests/rix7.testfile: ColoRIX Slideshow
 ```

@@ -20,14 +20,14 @@
 >>4 ubyte&7 6 \b x 128
 >>4 ubyte&7 7 \b x 256
 # storage type
+#>5  ubyte&15 0 \b, Linear
+>5  ubyte&15 1 \b, Planar (0213)
+>5  ubyte&15 2 \b, Planar
+>5  ubyte&15 3 \b, Text
+>5  ubyte&15 4 \b, Planar lines
 >5	ubyte&128 128 \b (compressed)
 >5	ubyte&64 64 \b (extension)
 >5	ubyte&32 32 \b (encrypted)
-#>5  ubyte 0 \b, Linear (1BPP)
->5  ubyte 1 \b, Planar (0213)
->5  ubyte 2 \b, Planar (0123)
->5  ubyte 3 \b, Text
->5  ubyte 4 \b, Planar lines (0123)
 
 0	string	RIX3	ColoRIX Image
 >4 use rix-header
