@@ -28,6 +28,46 @@ Suffix Columns Lines Colors
 
 When used in other contexts, the extension "RIX" was sometimes used, due to it appearing first in the file as the magic marker.
 
+## Overspecification
+
+The official specification contains a number of features that I have _as of yet_ been
+unable to verify as supported by any actual software, this includes:
+
+* Support for direct color images.
+* Support for indexed images of bit-depths other than 4 and 8 (16 and 256 colors)
+* Support for images using the storage types 1 (swizzled planar field) and 3 (text)
+* Extensions
+* Encryption
+
+This does NOT mean that there is no software that supports these features. Remember,
+people used this format in a very 'ad-hoc' manner; just because the official software can't
+generate a direct color image, doesn't mean nobody ever generated one themselves.
+
+## Planar modes explained
+
+There are three different planar modes in the specification. These are specified using the lower
+nibble of the 'storage byte' (the higher nibble contains flags) at offset 9 in the header.
+
+<dl>
+<dt>4 (0100b) - Planar lines (0123)</dt>
+<dd>This is the 'default' planar mode. This bits for the palette index are interleaved in lines/rows,
+starting with a row of bits for bit 0 (the LSB) of the index, then a row for bit 1 and so on.
+For 16 colors there will be four such rows to make up one 'line' of the image.</dd>
+<dt>2 (0010b) - Planar field (0123)</dt>
+<dd>This stores the bits in the more conventional field form. COLORIX does not support loading
+such images, but RIXLATE seemingly does (to be verified).</dd>
+<dt>1 (0001b) - Planar field (0213)</dt>
+<dd>Based on the specification, this should be a 'swizzled' version of type 2, but I've found
+nothing which supports this mode.</dd>
+</dl>
+
+### Tests made to verify planar modes
+
+Taking a working 16-color "planar lines" file and changing the header to one of the other planar
+modes results in `COLORIX.EXE` saying "Incompatible Screen File" when trying to load them.
+
+Curiously, `RIXLATE.EXE` seems capable of reading type 2 images (planar fields).
+
 ## Usage
 
 It's my goal to eventually contribute it upstream, but till then...
