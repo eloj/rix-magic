@@ -1,7 +1,21 @@
 # File Magic: ColoRIX
 
+UPDATE: As of 2023-04-02, this has been [contributed upstream](https://mailman.astron.com/pipermail/file/2023-April/001149.html). 'file-5.45' or later should include it.
+
 This repository contains a magic definition for the [ColoRIX file format](http://fileformats.archiveteam.org/wiki/ColoRIX),
 for use with the [file](https://github.com/file/file) and libmagic software.
+
+## Usage
+
+```console
+$ file -m rix.magic tests/*.testfile
+tests/colorix-linear-256-compressed.testfile:      ColoRIX Image, 320 x 200 x 256 (compressed)
+tests/colorix-linear-256.testfile:                 ColoRIX Image, 640 x 480 x 256
+tests/colorix-planar-fields-16.testfile:           ColoRIX Image, 640 x 200 x 16, Planar
+tests/colorix-planar-lines-16-compressed.testfile: ColoRIX Image, 640 x 200 x 16, Planar lines (compressed)
+tests/colorix-planar-lines-16.testfile:            ColoRIX Image, 640 x 200 x 16, Planar lines
+tests/colorix-slideshow.testfile:                  ColoRIX Slideshow
+```
 
 ## File format
 
@@ -69,16 +83,3 @@ modes results in `COLORIX.EXE` saying "Incompatible Screen File" when trying to 
 Curiously, `RIXLATE.EXE` is capable of reading type 2 images (planar fields). Verified by
 converting a type 4 to a type 2, which then displays correctly.
 
-## Usage
-
-It's my goal to eventually contribute it upstream, but till then...
-
-```console
-$ file -m rix.magic tests/*.testfile
-tests/colorix-linear-256-compressed.testfile:      ColoRIX Image, 320 x 200 x 256 (compressed)
-tests/colorix-linear-256.testfile:                 ColoRIX Image, 640 x 480 x 256
-tests/colorix-planar-fields-16.testfile:           ColoRIX Image, 640 x 200 x 16, Planar
-tests/colorix-planar-lines-16-compressed.testfile: ColoRIX Image, 640 x 200 x 16, Planar lines (compressed)
-tests/colorix-planar-lines-16.testfile:            ColoRIX Image, 640 x 200 x 16, Planar lines
-tests/colorix-slideshow.testfile:                  ColoRIX Slideshow
-```
