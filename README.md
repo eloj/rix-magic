@@ -64,12 +64,12 @@ nibble of the 'storage byte' (the higher nibble contains flags) at offset 9 in t
 
 <dl>
 <dt>4 (0100b) - Planar lines (0123)</dt>
-<dd>This is the 'default' planar mode. This bits for the palette index are interleaved in lines/rows,
+<dd>This is the 'default' planar mode. The bits for the palette index are interleaved in lines/rows,
 starting with a row of bits for bit 0 (the LSB) of the index, then a row for bit 1 and so on.
-For 16 colors there will be four such rows to make up one 'line' of the image.</dd>
+For 16 colors there will be four such rows to make up one line of the image.</dd>
 <dt>2 (0010b) - Planar field (0123)</dt>
-<dd>This stores the bits in the more conventional field form. COLORIX does not support loading
-such images, but RIXLATE does.</dd>
+<dd>This stores the bits in the more conventional field form, e.g all bit 0 bits come in one block, followed
+by all 1 bits, and so on for bpp number of fields. COLORIX does not support loading such images, but RIXLATE does.</dd>
 <dt>1 (0001b) - Planar field (0213)</dt>
 <dd>Based on the specification, this should be a 'swizzled' version of type 2, but I've found
 nothing which supports this mode.</dd>
@@ -83,3 +83,5 @@ modes results in `COLORIX.EXE` saying "Incompatible Screen File" when trying to 
 Curiously, `RIXLATE.EXE` is capable of reading type 2 images (planar fields). Verified by
 converting a type 4 to a type 2, which then displays correctly.
 
+I have not tested image widths that are not multiples of 8. Almost certainly any such would
+need the last byte of each bit-row padded to an even byte.
